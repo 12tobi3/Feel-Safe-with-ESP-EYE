@@ -19,9 +19,9 @@ import urllib.request
 URL = "http://172.20.10.6"
 i=0
 # Face recognition and opencv setup
-#video_capture = cv2.VideoCapture(URL + ":81/stream")
+video_capture = cv2.VideoCapture(URL + ":81/stream")
 # For Webcam
-video_capture = cv2.VideoCapture(0)
+# video_capture = cv2.VideoCapture(0)
 
 # Load a sample picture and learn how to recognize it.
 chris_image = face_recognition.load_image_file("/Users/christian.willmann/Desktop/Master/3. Semester/Wissensmana./FacePics/Chris.jpg")
@@ -68,11 +68,6 @@ while True:
             # See if the face is a match for the known face(s)
             matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
             name = "Unknown"
-
-            # # If a match was found in known_face_encodings, just use the first one.
-            # if True in matches:
-            #     first_match_index = matches.index(True)
-            #     name = known_face_names[first_match_index]
 
             # Or instead, use the known face with the smallest distance to the new face
             face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
