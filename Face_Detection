@@ -1,6 +1,3 @@
-#Detection_old
-
-
 
 import cv2
 import numpy as np
